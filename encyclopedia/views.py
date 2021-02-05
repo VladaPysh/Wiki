@@ -19,10 +19,11 @@ def entry(request, entry):
             "content": markdown(entryPage)
         })
 
-def search(request):
+def search(request, entry):
     entry = request.GET.get("q", "")
-    entryPage = util.get_entry(entry)
+    entryPage = util.list_entries()
     
-    return render(request, "encyclopedia/entry.html", {
-        "content": markdown(entryPage)
-    })
+    if entry in entryPage:
+        return render(request, "encyclopedia/entry.html", {
+            "content": markdown(entry)
+            })
