@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from markdown2 import markdown
 from . import util
-import re, random
+import random
 
 
 def index(request):
@@ -33,10 +33,13 @@ def search(request):
         return redirect("entry", entry=query)
     #if matching first few letters return to a search list of available results
     else:
+        #declare a new list for entries which might partially match query
+        entries = []
+        #go through each entry in a list of entries to compare to the query(case insensitive) and add to a list
         for entry in list_of_entries:
-            entries = []
-            if re.match(query, entry, re.IGNORECASE):
+            if query.lower() in entry.lower():
                 entries.append(entry)
+        #if found a match, display list of results
         if entries:
             return render(request, "encyclopedia/index.html", {
                 "entries": entries
