@@ -18,7 +18,8 @@ textarea {
 }
 
 .main {
-    padding: 10px;
+    padding: 5vh;
+    font-size: 1.2rem;
 }
 
 .search {
@@ -30,7 +31,7 @@ textarea {
 .sidebar {
     background-color: #f0f0f0;
     height: 100vh;
-    padding: 30px;
+    padding: 20px;
 }
 
 .sidebar h2 {
