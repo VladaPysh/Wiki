@@ -7,6 +7,6 @@
 {% block body %}
 
 <h1 style="color: rgb(219, 15, 15)"> Error </h1>
-{{ title }} does not exist in the encyclopedia, but you can create a New Page.
+{{ title }} does not exist in the encyclopedia, but you can create a <a href="{% url 'newpage' %}">New Page</a>
 
 {% endblock %}
