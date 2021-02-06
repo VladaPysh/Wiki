@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from markdown2 import markdown
 from . import util
 import random
+from django import forms
 
+class NewPage(forms.Form):
+    title = forms.CharField()
+    content = forms.CharField(widget=forms.Textarea)
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -49,3 +53,10 @@ def search(request):
             return render(request, "encyclopedia/error.html", {
                 "title": query
                 })
+
+def newpage(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/newpage.html", {
+            "form": NewPage()
+        })
+    
