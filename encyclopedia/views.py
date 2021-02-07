@@ -86,7 +86,7 @@ def newpage(request):
 def edit(request, entry):
     if request.method == "POST":
         content = util.get_entry(entry)
-        form = NewPage(initial={"title": entry, "content": content})
+        form = NewPage(request.POST)
         if form.is_valid:
             content = form.cleaned_data["content"]
             title = form.cleaned_data["title"]

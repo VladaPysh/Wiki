@@ -7,6 +7,6 @@
 {% block body %}
 
     {{ entry|safe }}
-    <a class="button" href="#">Edit page</a>
+    <a class="button" href="{% url 'edit' entry %}">Edit page</a>
 
 {% endblock %}
