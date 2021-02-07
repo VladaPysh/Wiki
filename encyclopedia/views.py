@@ -83,24 +83,24 @@ def newpage(request):
             "form": NewPage()
         })
 
-def edit(request):
-    if request.method == "GET":
-        content = util.get_entry(entry)
-        return render(request, "encyclopedia/edit.html", {
-            "form": NewPage()
-        })
+def edit(request, entry):
     if request.method == "POST":
-        form = NewPage(request.POST)
         content = util.get_entry(entry)
+        form = NewPage(initial={"title": entry, "content": content})
         if form.is_valid:
             content = form.cleaned_data["content"]
             title = form.cleaned_data["title"]
             util.save_entry(title, f'#{title}\n{content}')
             return redirect("entry", entry=title)
+    else:
+        content = util.get_entry(entry)
+        form = NewPage(initial={"title": entry, "content": content})
+        return render(request, "encyclopedia/edit.html", {
+            "form": form
+        })
     #get form
     #fill with info about entry. title and content
     #if form is valid
     #save changes using save_entry and redirect to the entry page
     #else render form page
-    
     #form.cleaned_data["content"] = util.get_entry(entry)
