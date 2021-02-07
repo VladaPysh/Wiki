@@ -59,4 +59,19 @@ def newpage(request):
         return render(request, "encyclopedia/newpage.html", {
             "form": NewPage()
         })
+    if request.method == "POST":
+        form = NewPage(request.POST)
+        #check if form is valid
+        if form.is_valid():
+            #get values for title and context
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            #compare title name to the existing list of title names
+            list_of_entries = util.list_entries()
+            if title in list_of_entries:
+                #if match return error 
+                return render(request, "encyclopedia/error1.html", {
+                    "title": title
+                })
+            #else save into a new file
     
