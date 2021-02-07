@@ -6,7 +6,7 @@ from django import forms
 
 class NewPage(forms.Form):
     title = forms.CharField()
-    content = forms.CharField(widget=forms.Textarea)
+    content = forms.CharField(label="", widget=forms.Textarea)
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -85,14 +85,16 @@ def newpage(request):
 
 def edit(request):
     if request.method == "GET":
+        content = util.get_entry(entry)
         return render(request, "encyclopedia/edit.html", {
             "form": NewPage()
         })
     if request.method == "POST":
         form = NewPage(request.POST)
+        content = util.get_entry(entry)
         if form.is_valid:
-            title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
+            title = form.cleaned_data["title"]
             util.save_entry(title, f'#{title}\n{content}')
             return redirect("entry", entry=title)
     #get form
@@ -101,3 +103,4 @@ def edit(request):
     #save changes using save_entry and redirect to the entry page
     #else render form page
     
+    #form.cleaned_data["content"] = util.get_entry(entry)
