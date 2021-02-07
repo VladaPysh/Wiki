@@ -104,3 +104,8 @@ def edit(request, entry):
     #save changes using save_entry and redirect to the entry page
     #else render form page
     #form.cleaned_data["content"] = util.get_entry(entry)
+
+def randompage(request):
+    entries = util.list_entries()
+    entry = random.choice(entries)
+    return redirect("entry", entry=entry)
