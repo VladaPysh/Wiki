@@ -71,12 +71,13 @@ def newpage(request):
                 })
             #else save into a new file
             else:
-                util.save_entry(title, content)
+                util.save_entry(title, f'#{title}\n{content}')
                 return redirect("entry", entry=title)
         else:
             return render(request, "encyclopedia/newpage.html", {
                 "form": form
             })
+    #if request get, render form page
     else:
         return render(request, "encyclopedia/newpage.html", {
             "form": NewPage()
