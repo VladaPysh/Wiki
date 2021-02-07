@@ -55,10 +55,6 @@ def search(request):
                 })
 
 def newpage(request):
-    if request.method == "GET":
-        return render(request, "encyclopedia/newpage.html", {
-            "form": NewPage()
-        })
     if request.method == "POST":
         form = NewPage(request.POST)
         #check if form is valid
@@ -74,4 +70,16 @@ def newpage(request):
                     "title": title
                 })
             #else save into a new file
+            else:
+                util.save_entry(title, content)
+                return redirect("entry", entry=title)
+        else:
+            return render(request, "encyclopedia/newpage.html", {
+                "form": form
+            })
+    else:
+        return render(request, "encyclopedia/newpage.html", {
+            "form": NewPage()
+        })
+            
     
