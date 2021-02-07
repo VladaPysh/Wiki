@@ -40,3 +40,11 @@ textarea {
 .newpage {
     height: 60vh;
 }
+
+.button {
+    padding: 10px 15px;
+    border: 1px solid rgb(200, 200, 214);
+    background-color: rgb(116, 116, 182);
+    border-radius: 5%;
+    color: white;
+}
