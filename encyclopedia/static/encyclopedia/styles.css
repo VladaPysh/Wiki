@@ -1,6 +1,24 @@
 body {
     margin: 0;
-    background-color: white;
+    padding: 0;
+    background-color: rgba(230, 226, 215, 0.85);
+}
+
+body a {
+    color:#25231C;
+    text-decoration: none;
+    padding-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wiki {
+    display: flex;
+    font-family: Roboto;
+    color: #25231C;
+    font-size: 1.2rem;
 }
 
 code {
@@ -8,37 +26,57 @@ code {
 }
 
 h1 {
-    margin-top: 0px;
     padding-top: 20px;
 }
 
 .main {
-    padding: 5vh;
-    font-size: 1.2rem;
+    margin: 10px 10px;
+    padding: 15px 50px;
+    flex: 4;
+}
+
+.main li {
+    padding-top: 10px;
 }
 
 .search {
-    width: 100%;
-    font-size: 15px;
-    line-height: 15px;
+    width: 180px;
+    line-height: 25px;
+    padding: 5px;
+    margin: 10px 30px;
+    font-size: 1.2rem;
 }
 
 .sidebar {
-    background-color: #f0f0f0;
+    background-color: #D9D3C3;
     height: 100vh;
+    min-width: 250px;
     padding: 20px;
+    flex: 1;
 }
 
 .sidebar h2 {
-    margin-top: 5px;
+    padding: 10px 30px;
+}
+
+.sidebar_link {
+    font-weight: bold;
+    padding: 5px 30px;
 }
 
 .button {
     padding: 10px 15px;
-    border: 1px solid rgb(200, 200, 214);
-    background-color: rgb(116, 116, 182);
+    border: 1px solid #776b3d;
+    background-color: #B1995B;
     border-radius: 5%;
-    color: white;
+    color: #25231C;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.button:hover {
+    text-decoration: underline;
 }
 
 .logo {
@@ -50,8 +88,12 @@ h1 {
     text-shadow: 3px 0px 4px rgba(19, 19, 17, 0.25);
 }
 
+.logo:hover {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 770px) {
-    .sidebar {
-        height: 40vh;
+    .wiki {
+        flex-direction: column;
     }
 }
