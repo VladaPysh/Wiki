@@ -6,7 +6,7 @@ from django import forms
 
 class NewPage(forms.Form):
     title = forms.CharField()
-    content = forms.CharField(label="", widget=forms.Textarea)
+    content = forms.CharField(label="", widget=forms.Textarea(attrs={'style': 'height: 200px;width:100%'}))
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -24,7 +24,8 @@ def entry(request, entry):
     #show entry page information 
     else: 
         return render(request, "encyclopedia/entry.html", {
-            "entry": markdown(entryPage)
+            "entry": markdown(entryPage),
+            "entry_title": entry
         })
 
 def search(request):
@@ -87,23 +88,20 @@ def edit(request, entry):
     if request.method == "POST":
         content = util.get_entry(entry)
         form = NewPage(request.POST)
-        if form.is_valid:
+        if form.is_valid():
+            #save changes using save_entry and redirect to the entry page
             content = form.cleaned_data["content"]
             title = form.cleaned_data["title"]
-            util.save_entry(title, f'#{title}\n{content}')
+            util.save_entry(title, content)
             return redirect("entry", entry=title)
     else:
         content = util.get_entry(entry)
+        #get form fill with info about entry. title and content
         form = NewPage(initial={"title": entry, "content": content})
         return render(request, "encyclopedia/edit.html", {
-            "form": form
+            "form": form,
+            "entry_title": entry
         })
-    #get form
-    #fill with info about entry. title and content
-    #if form is valid
-    #save changes using save_entry and redirect to the entry page
-    #else render form page
-    #form.cleaned_data["content"] = util.get_entry(entry)
 
 def randompage(request):
     entries = util.list_entries()
