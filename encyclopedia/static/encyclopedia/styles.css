@@ -7,7 +7,7 @@ body {
 body a {
     color:#25231C;
     text-decoration: none;
-    padding-top: 5px;
+    padding-top: 0px;
 }
 
 a:hover {
@@ -25,13 +25,9 @@ code {
     white-space: pre;
 }
 
-h1 {
-    padding-top: 20px;
-}
-
 .main {
-    margin: 10px 10px;
-    padding: 15px 50px;
+    margin: 10px;
+    padding: 20px 50px;
     flex: 4;
 }
 
@@ -41,17 +37,16 @@ h1 {
 
 .search {
     width: 180px;
-    line-height: 25px;
+    line-height: 20px;
     padding: 5px;
     margin: 10px 30px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .sidebar {
     background-color: #D9D3C3;
     height: 100vh;
     min-width: 250px;
-    padding: 20px;
     flex: 1;
 }
 
@@ -65,10 +60,10 @@ h1 {
 }
 
 .button {
-    padding: 10px 15px;
+    padding: 5px 15px;
     border: 1px solid #776b3d;
     background-color: #B1995B;
-    border-radius: 5%;
+    border-radius: 3%;
     color: #25231C;
     cursor: pointer;
     margin-top: 10px;
@@ -76,7 +71,8 @@ h1 {
 }
 
 .button:hover {
-    text-decoration: underline;
+    background-color: rgb(233, 196, 148);
+    text-decoration: none;
 }
 
 .logo {
@@ -92,7 +88,13 @@ h1 {
     text-decoration: none;
 }
 
-@media screen and (max-width: 770px) {
+.form {
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 650px) {
     .wiki {
         flex-direction: column;
     }
