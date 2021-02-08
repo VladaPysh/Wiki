@@ -6,7 +6,7 @@
 
 {% block body %}
 <h1>Create New Page</h1>
-<div class="newpage">
+<div>
   <form action="{% url 'newpage' %}" method="post">
     {% csrf_token %}
   {{ form }} 

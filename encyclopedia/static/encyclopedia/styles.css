@@ -12,11 +12,6 @@ h1 {
     padding-top: 20px;
 }
 
-textarea {
-    height: 90vh;
-    width: 80%;
-}
-
 .main {
     padding: 5vh;
     font-size: 1.2rem;
@@ -37,9 +32,6 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
-.newpage {
-    height: 60vh;
-}
 
 .button {
     padding: 10px 15px;
@@ -47,4 +39,19 @@ textarea {
     background-color: rgb(116, 116, 182);
     border-radius: 5%;
     color: white;
+}
+
+.logo {
+    font-family: Merriweather;
+    font-weight: 900;
+    font-size: 4rem;
+    color: #B1995B;
+    -webkit-text-stroke: 0.5px #25231C;
+    text-shadow: 3px 0px 4px rgba(19, 19, 17, 0.25);
+}
+
+@media screen and (max-width: 770px) {
+    .sidebar {
+        height: 40vh;
+    }
 }

@@ -5,8 +5,8 @@ import random
 from django import forms
 
 class NewPage(forms.Form):
-    title = forms.CharField()
-    content = forms.CharField(label="", widget=forms.Textarea(attrs={'style': 'height: 200px;width:100%'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'style': 'width: 30%'}))
+    content = forms.CharField(label="", widget=forms.Textarea(attrs={'style': 'height: 50%;width:100%'}))
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
