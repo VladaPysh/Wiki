@@ -1,6 +1,4 @@
-# cs50w-project1
-
-Wiki
+#Wiki
 
 Project created as an assignemt for the cs50 Web Programming with Python and JavaScript course. 
 
