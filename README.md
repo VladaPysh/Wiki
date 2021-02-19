@@ -1,6 +1,8 @@
 Wiki
 
-Project created as an assignemt for the cs50 Web Programming with Python and JavaScript course. 
+Project created as an assignemt for the cs50 Web Programming with Python and JavaScript course.
+
+Demo: https://youtu.be/M9S0FDmIW3M
 
 Wiki is a Wikipedia-like online encyclopedia, built using Django framework, Python, CSS and HTML.
 Several functions were implemented:
